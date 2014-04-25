@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <iostream>
-#include <math.h>
 
 #include <opencv/cv.h>
 #include <opencv2/opencv.hpp>
@@ -8,14 +7,21 @@
 /* version 2.4 of openCV */
 using namespace cv;
 
+/**
+ * Takes in a RGB image and outputs
+ * a Lab space image.
+ **/
 Mat BGR2LAB(Mat const &imgRGB){
-
 	Mat imgLab;
 	cvtColor(imgRGB, imgLab, CV_RGB2Lab);
-
 	return imgLab;
 }
 
+/**
+ * Takes in image in the lab space and splits 
+ * out the alpha stream. Returning it as a matrix,
+ * to be saved out to file or manipulated
+ **/
 Mat alphaLAB(Mat const &imgLab){
 
 	Mat alphaLab;
@@ -35,6 +41,11 @@ Mat alphaLAB(Mat const &imgLab){
 	return alphaLab;
 }
 
+/**
+ * Takes in image in the lab space and splits 
+ * out the beta stream. Returning it as a matrix,
+ * to be saved out to file or manipulated
+ **/
 Mat betaLAB(Mat &imgLab){
 	Mat betaLab;
 	cvtColor(imgLab, betaLab, CV_Lab2RGB);
