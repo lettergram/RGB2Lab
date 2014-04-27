@@ -64,12 +64,12 @@ Mat betaLAB(Mat &imgLab){
 
 int main(int argc, const char* argv[]){
 
-    Mat imgLab =  BGR2LAB(imread(argv[1], CV_LOAD_IMAGE_COLOR)); 
+  Mat imgLab =  BGR2LAB(imread(argv[1], CV_LOAD_IMAGE_COLOR)); 
 
 	char filename[60];
 
 	sprintf(filename, "output/%s-rgb_2_lab.jpg", argv[1]);
-    imwrite(filename, imgLab);
+  imwrite(filename, imgLab);
 	sprintf(filename, "output/%s-alphaLab.jpg", argv[1]);
 	imwrite(filename, alphaLAB(imgLab));
 	sprintf(filename, "output/%s-betaLab.jpg", argv[1]);
